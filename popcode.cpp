@@ -1,6 +1,9 @@
 #include <poplar/DeviceManager.hpp>
 #include <poplar/Engine.hpp>
 #include <poplar/Graph.hpp>
+#include <poplar/DebugContext.hpp>
+
+
 
 #include <popops/codelets.hpp>
 #include <poplin/codelets.hpp>
@@ -42,7 +45,9 @@ int main() {
   popsparse::addCodelets(graph);
 
   poplar::Tensor matrix_A;
-  poplar::Type datatype = FLOAT;
-  //matrix_A = createMatMulInputLHS(graph, const poplar::Type &dataType, const std::vector<std::size_t> &aShape, const std::vector<std::size_t> &bShape, const poplar::DebugContext &debugContext, const poplar::OptionFlags &options = {}, matmul::PlanningCache *cache = nullptr)
+  int mat_N = 1000;
+  std::size_t mat_size = sizeof(int)*mat_N;
+  const std::vector<std::size_t> shape = {mat_size, mat_size};
+  matrix_A = createMatMulInputLHS(graph, FLOAT, shape, shape, DebugContext{});
 
 }
