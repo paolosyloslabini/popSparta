@@ -41,4 +41,8 @@ int main() {
   poplin::addCodelets(graph);
   popsparse::addCodelets(graph);
 
+  poplar::Tensor matrix_A;
+  poplar::Type datatype = FLOAT;
+  //matrix_A = createMatMulInputLHS(graph, const poplar::Type &dataType, const std::vector<std::size_t> &aShape, const std::vector<std::size_t> &bShape, const poplar::DebugContext &debugContext, const poplar::OptionFlags &options = {}, matmul::PlanningCache *cache = nullptr)
+
 }
