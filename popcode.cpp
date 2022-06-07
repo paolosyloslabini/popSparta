@@ -6,7 +6,10 @@
 
 
 #include <popops/codelets.hpp>
+
 #include <poplin/codelets.hpp>
+#include <poplin/MatMul.hpp>
+
 #include <popsparse/codelets.hpp>
 
 #include <algorithm>
@@ -49,6 +52,6 @@ int main() {
   std::size_t mat_size = sizeof(int)*mat_N;
   const std::vector<std::size_t> shape = {mat_size, mat_size};
   const poplar::Type poptype = FLOAT;
-  matrix_A = graph.createMatMulInputLHS(graph, poptype, shape, shape, DebugContext{});
+  matrix_A = poplin::createMatMulInputLHS(graph, poptype, shape, shape, DebugContext{});
 
 }
