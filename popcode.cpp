@@ -53,5 +53,5 @@ int main() {
   const std::vector<std::size_t> shape = {mat_size, mat_size};
   const poplar::Type poptype = FLOAT;
   matrix_A = poplin::createMatMulInputLHS(graph, poptype, shape, shape, DebugContext{});
-
+  matrix_A = poplin::createMatMulInputRHS(graph, poptype, shape, shape, DebugContext{});
 }
