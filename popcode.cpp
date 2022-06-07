@@ -3,7 +3,6 @@
 #include <poplar/Graph.hpp>
 
 #include <popops/codelets.hpp>
-#include <poputil/codelets.hpp>
 #include <poplin/codelets.hpp>
 #include <popsparse/codelets.hpp>
 
