@@ -2,6 +2,11 @@
 #include <poplar/Engine.hpp>
 #include <poplar/Graph.hpp>
 
+#include <popops/codelets.hpp>
+#include <poputil/codelets.hpp>
+#include <poplin/codelets.hpp>
+#include <popsparse/codelets.hpp>
+
 #include <algorithm>
 #include <iostream>
 
@@ -30,4 +35,11 @@ int main() {
 
   // Create the Graph object
   Graph graph(target);
+
+
+  //adding libraries codelets
+  popops::addCodelets(graph);
+  poplin::addCodelets(graph);
+  popsparse::addCodelets(graph);
+
 }
