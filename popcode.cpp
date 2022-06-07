@@ -48,10 +48,16 @@ int main() {
   popsparse::addCodelets(graph);
 
   poplar::Tensor matrix_A;
+  poplar::Tensor matrix_B;
+
   int mat_N = 1000;
   std::size_t mat_size = sizeof(int)*mat_N;
   const std::vector<std::size_t> shape = {mat_size, mat_size};
   const poplar::Type poptype = FLOAT;
+
   matrix_A = poplin::createMatMulInputLHS(graph, poptype, shape, shape, DebugContext{});
-  matrix_A = poplin::createMatMulInputRHS(graph, poptype, shape, shape, DebugContext{});
+  matrix_B = poplin::createMatMulInputRHS(graph, poptype, shape, shape, DebugContext{});
+
+  //TODO
+  //set tile mapping (fill the tensors)
 }
