@@ -48,8 +48,7 @@ int main() {
   int mat_N = 1000;
   std::size_t mat_size = sizeof(int)*mat_N;
   const std::vector<std::size_t> shape = {mat_size, mat_size};
- const poplar::Type poptype = FLOAT;
-  
-  matrix_A = poplin::createMatMulInputLHS(graph, poptype, shape, shape, DebugContext{});
+  const poplar::Type poptype = FLOAT;
+  matrix_A = graph.createMatMulInputLHS(graph, poptype, shape, shape, DebugContext{});
 
 }
