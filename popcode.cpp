@@ -47,6 +47,7 @@ int main() {
   poplin::addCodelets(graph);
   popsparse::addCodelets(graph);
 
+  
   poplar::Tensor matrix_A;
   poplar::Tensor matrix_B;
 
@@ -55,9 +56,10 @@ int main() {
   const std::vector<std::size_t> shape = {mat_size, mat_size};
   const poplar::Type poptype = FLOAT;
 
+  //creating matrix shapes(?)
   matrix_A = poplin::createMatMulInputLHS(graph, poptype, shape, shape, DebugContext{});
   matrix_B = poplin::createMatMulInputRHS(graph, poptype, shape, shape, DebugContext{});
 
-  //TODO
-  //set tile mapping (fill the tensors)
+  //How to multiply now? 
+  
 }
