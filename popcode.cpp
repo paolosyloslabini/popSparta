@@ -56,10 +56,34 @@ int main() {
   const std::vector<std::size_t> shape = {mat_size, mat_size};
   const poplar::Type poptype = FLOAT;
 
-  //creating matrix shapes(?)
+  //creating matrix shapes(but not filling them)
   matrix_A = poplin::createMatMulInputLHS(graph, poptype, shape, shape, DebugContext{});
   matrix_B = poplin::createMatMulInputRHS(graph, poptype, shape, shape, DebugContext{});
 
+  //creating a program to execute
+  Sequence prog;
+  
+    
   //How to multiply now? 
+  //The data should be somehow in Matrix_A and Matrix_B already?
+  /*
+  void matMulAcc(poplar::Graph &graph, const poplar::Tensor &C, float k,
+               const poplar::Tensor &A, const poplar::Tensor &B,
+               poplar::program::Sequence &prog,
+               const poplar::DebugContext &debugContext = {},
+               const poplar::OptionFlags &options = {},
+               matmul::PlanningCache *cache = nullptr);
+  */
+  
+  //This runs the program when everything is inside
+  /*
+  // Create the engine
+  Engine engine(graph, prog);
+  engine.load(device);
+
+  // Run the control program
+  engine.run(0);
+  */
+  
   
 }
